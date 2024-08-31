@@ -13,4 +13,8 @@ export class ProductoService {
     console.log("--------------------------");
     return this.api.get<Producto[]>('https://fakestoreapi.com/products');
   }
+
+  getProducto(id : number){
+    return this.api.get<Producto>('https://fakestoreapi.com/products/'+id);
+  }
 }
