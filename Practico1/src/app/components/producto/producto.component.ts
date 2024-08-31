@@ -1,7 +1,8 @@
 import { ProductoService } from './../../services/producto.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-producto',
@@ -9,15 +10,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./producto.component.scss'],
 })
 
-export class ProductoComponent{
+export class ProductoComponent implements OnInit{
 
   productos? : Producto[];
+  categoria? : String;
 
-  constructor(private productoService: ProductoService , private router: Router) {
-    this.productoService.getProductos().subscribe((productos : Producto[]) =>{
-      this.productos = productos
-   });
+  constructor(private productoService: ProductoService , private router: Router, private route: ActivatedRoute ) {
 
+}
+
+ngOnInit() {
+  this.route.params.subscribe((params) => {
+    console.log(params['categoria']);
+    this.categoria = params['categoria'];
+    this.loadProductos();
+  });
+}
+
+loadProductos() {
+  this.productoService.getProductos().subscribe((productos: Producto[]) => {
+    if (this.categoria) {
+      this.productos = productos.filter(
+        (producto) => producto.category === this.categoria
+      );
+    } else {
+      this.productos = productos;
+    }
+  });
 }
 
 navigateToDetail(productId: number) {

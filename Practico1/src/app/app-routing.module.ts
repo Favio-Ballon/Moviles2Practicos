@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ProductoDetailComponent } from './components/producto-detail/producto-detail.component';
+import { Tab1Page } from './tab1/tab1.page';
 
 
 const routes: Routes = [
@@ -10,6 +11,9 @@ const routes: Routes = [
   },
   {
     path: 'product-detail/:id', component: ProductoDetailComponent
+  },
+  {
+    path: 'product-category/:categoria', component: Tab1Page
   }
 ];
 @NgModule({
