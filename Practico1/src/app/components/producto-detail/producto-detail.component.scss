@@ -3,13 +3,8 @@ ion-card img {
     height: auto;
     object-fit: cover;
   }
-
   
-ion-card-subtitle {
+  ion-card-content h2 {
     color: #3880ff;
     margin-top: 10px;
-}
-
-ion-chip{
-    margin-top: 10px;
-}
+  }
