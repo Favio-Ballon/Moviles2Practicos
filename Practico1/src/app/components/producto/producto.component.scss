@@ -1,8 +1,9 @@
-ion-card img {
+.product-image {
     width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
+    height: 200px; /* You can adjust the height as needed */
+    object-fit: cover; /* Ensures the image covers the entire area */
+}
+  
 
   
 ion-card-subtitle {
