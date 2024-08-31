@@ -40,7 +40,7 @@ loadProductos() {
 }
 
 navigateToDetail(productId: number) {
-  this.router.navigate(['/product-detail', productId]);
+  this.router.navigate(['/products', productId]);
 }
 
 }

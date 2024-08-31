@@ -18,7 +18,7 @@ export class CategoriaComponent {
    }
 
    navigateToProducto(category: String) {
-    this.router.navigate(['/product-category', category]);
+    this.router.navigate(['/products/category', category]);
    }
 
 }

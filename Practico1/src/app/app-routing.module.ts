@@ -10,10 +10,10 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'product-detail/:id', component: ProductoDetailComponent
+    path: 'products/:id', component: ProductoDetailComponent
   },
   {
-    path: 'product-category/:categoria', component: Tab1Page
+    path: 'products/category/:categoria', component: Tab1Page
   }
 ];
 @NgModule({
