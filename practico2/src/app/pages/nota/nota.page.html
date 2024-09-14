@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Nota</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="form-content">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Nota</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Formulario para insertar o actualizar la nota -->
+  <div class="form-container" [ngStyle]="{'background-color': '#' + (note.color || 'ffffff')}">
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input [(ngModel)]="note.titulo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contenido</ion-label>
+      <ion-textarea [(ngModel)]="note.contenido"></ion-textarea>
+    </ion-item>
+
+    <!-- Seleccionar color -->
+    <ion-item>
+      <ion-label>Color</ion-label>
+      <ion-select [(ngModel)]="note.color">
+        <ion-select-option value="FF0000">Red</ion-select-option>
+        <ion-select-option value="0000FF">Blue</ion-select-option>
+        <ion-select-option value="00FF00">Green</ion-select-option>
+        <ion-select-option value="FFFF00">Yellow</ion-select-option>
+        <ion-select-option value="FF00FF">Pink</ion-select-option>
+        <ion-select-option value="00FFFF">Light Blue</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Botones de acción, colocados en la parte inferior -->
+    <div class="button-container">
+      <ion-button expand="block" color="primary" (click)="saveNote()">Guardar</ion-button>
+      <ion-button expand="block" color="danger" (click)="deleteNote()" *ngIf="note.id !== -1">Eliminar</ion-button>
+    </div>
+  </div>
+</ion-content>

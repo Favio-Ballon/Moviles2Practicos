@@ -1,0 +1,59 @@
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.notes-container {
+  height: calc(100vh - 56px - 56px);
+  overflow-y: auto;
+}
+
+.note-item {
+  padding: 0;
+}
+
+.note-container {
+  width: 100%;
+  padding: 16px;
+  margin: 8px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.note-container h2 {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+}
+
+.note-container p {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.add-note-btn {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+}
