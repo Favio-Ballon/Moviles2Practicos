@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:practico3/services/api.dart';
 import 'package:practico3/models/welcome.dart';
 import 'package:practico3/models/article.dart';
+import 'package:practico3/ui/noticiaDetalle.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -40,21 +41,31 @@ class _homeState extends State<home> {
     return ListView.builder(
       itemCount: noticias.articles.length,
       itemBuilder: (context, index) {
-        return buildCard(noticias.articles[index]);
+        return buildCard(noticias.articles[index], context);
       },
     );
   }
 }
 
-Card buildCard(Article article) {
+Card buildCard(Article article, BuildContext context) {
   return Card(
-    child: Column(
-      children: [
-        Image.network(article.urlToImage),
-        ListTile(
-          title: Text(article.title),
-        ),
-      ],
+    child: InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => NoticiaDetalle(article: article),
+          ),
+        );
+      },
+      child: Column(
+        children: [
+          Image.network(article.urlToImage),
+          ListTile(
+            title: Text(article.title),
+          ),
+        ],
+      ),
     ),
   );
 }

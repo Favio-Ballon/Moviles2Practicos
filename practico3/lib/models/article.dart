@@ -24,7 +24,8 @@ class Article {
         title = title ?? 'No Title',
         description = description ?? 'No Description',
         url = url ?? 'No URL',
-        urlToImage = urlToImage ?? 'No Image URL',
+        urlToImage = urlToImage ??
+            'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg',
         publishedAt = publishedAt ?? DateTime.now(),
         content = content ?? 'No Content';
 
