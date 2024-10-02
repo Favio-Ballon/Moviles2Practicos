@@ -40,7 +40,6 @@ export class NotaPage implements OnInit {
   }
 
   async saveNote() {
-
     if(this.note.id == -1) {
       await this.NotasBLL.insert(this.dbService, this.note.titulo, this.note.contenido, this.note.color);
       console.log('Nota insertada');

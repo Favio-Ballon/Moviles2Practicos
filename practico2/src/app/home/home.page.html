@@ -6,19 +6,20 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="notes-container">
-    <!-- Lista de notas -->
+
+
     <ion-list>
       <ion-item *ngFor="let note of notes" lines="none" class="note-item" (click)="editNote(note.id)">
         <div [ngStyle]="{'background-color': note.color ? '#' + note.color : 'white'}" class="note-container">
           <ion-label>
             <h2>{{note.titulo}}</h2>
-            <p>{{note.contenido}}</p> <!-- Agregar contenido debajo del título -->
+            <p>{{note.contenido}}</p>
           </ion-label>
         </div>
       </ion-item>
     </ion-list>
   </div>
 
-  <!-- Botón para agregar una nota -->
+  
   <ion-button expand="block" color="secondary" class="add-note-btn" (click)="addNote()">Agregar Nota</ion-button>
 </ion-content>

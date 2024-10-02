@@ -27,14 +27,12 @@ export class HomePage {
     this.notes = await this.NotasBLL.selectAll(this.dbService);
     console.log("Estas son las notas", this.notes);
   }
-    addNote() {
-    // Navigate to nota.page.html
+  addNote() {
     this.router.navigate([`/nota/${-1}`]);
   }
 
   async editNote(id: number) {
-    // Navigate to nota.page.html
-    this.router.navigate([`/nota/${id}`]);
+    this.router.navigate([`/nota/${ id}`]);
   }
   
 }
