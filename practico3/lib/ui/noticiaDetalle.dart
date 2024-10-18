@@ -10,7 +10,7 @@ class NoticiaDetalle extends StatelessWidget {
   Future<void> _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $url';
+      throw 'No se pudo lanzar $url';
     }
   }
 
@@ -28,11 +28,13 @@ class NoticiaDetalle extends StatelessWidget {
             Text(article.title,
                 style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)),
             Image.network(article.urlToImage),
-            SizedBox(height: 16.0),
-            SizedBox(height: 8.0),
-            Text(article.description),
-            SizedBox(height: 8.0),
+            SizedBox(height: 1.0),
             Text('Publicado el: ${article.publishedAt}'),
+            Text('Por: ${article.author}'),
+            Text('Fuente: ${article.source.name}'),
+            SizedBox(height: 16.0),
+            Text(article.description,
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w400)),
             SizedBox(height: 8.0),
             Text(article.content,
                 style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w400)),
