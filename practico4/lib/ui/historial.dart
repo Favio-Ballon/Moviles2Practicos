@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:practico4/db/controller/peliculaHistoriaController.dart';
 import 'package:practico4/models/peliculaHistoria.dart';
+import 'package:practico4/ui/peliculaDetalle.dart';
 
 class Historial extends StatelessWidget {
   @override
@@ -24,6 +25,14 @@ class Historial extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(peliculas[index].title),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                PeliculaDetalle(peliculas[index].id)),
+                      );
+                    },
                   );
                 },
               );
