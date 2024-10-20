@@ -44,7 +44,8 @@ class _PeliculaDetalleState extends State<PeliculaDetalle> {
                     Text('Duración: ${pelicula.runtime} minutos'),
                     Text(
                         'Géneros: ${pelicula.genres.map((e) => e.name).join(', ')}'),
-                    //Text('Director: ${pelicula.directors.map((e) => e.name).join(', ')}'),
+                    Text(
+                        'Director: ${pelicula.directors.map((e) => e.name).join(', ')}'),
                     Text('Votación: ${pelicula.voteAverage}'),
                     Text('Resumen: ${pelicula.overview}'),
                   ],

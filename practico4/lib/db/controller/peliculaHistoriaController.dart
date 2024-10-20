@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:sqflite/sqflite.dart';
 import 'package:practico4/db/config/db.dart';
 import 'package:practico4/models/peliculaHistoria.dart';
