@@ -26,6 +26,25 @@ class _BuscadorState extends State<Buscador> {
     debugPrint('Peliculas encontradas: ${peliculas.length}');
   }
 
+  void buscarPorAnio(String value) {
+    //verificiar que value es un numero
+    if (int.tryParse(value) == null) {
+      return;
+    }
+
+    final anio = int.parse(value);
+
+    // Implementar la lógica de búsqueda por año aquí
+    ApiService().getPeliculaPorAnio(anio).then((value) {
+      setState(() {
+        peliculas = value;
+      });
+    });
+    //log de la busqueda con log no print
+    debugPrint('Buscando: $value');
+    debugPrint('Peliculas encontradas: ${peliculas.length}');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +70,19 @@ class _BuscadorState extends State<Buscador> {
             SearchBar(
               hintText: 'Buscar película',
               onChanged: (value) => buscarPelicula(value),
+            ),
+            const SizedBox(height: 10),
+            //search by year
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Buscar por año',
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.number,
+                onChanged: (value) => buscarPorAnio(value),
+              ),
             ),
             Expanded(
               child: ListView.builder(

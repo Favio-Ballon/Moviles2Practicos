@@ -66,4 +66,26 @@ class ApiService {
       throw Exception('Failed to load movie');
     }
   }
+
+  Future<List<Peliculahistoria>> getPeliculaPorAnio(int anio) async {
+    var client = http.Client();
+    var url = Uri.parse(
+        'https://api.themoviedb.org/3/discover/movie?primary_release_year=$anio');
+
+    var response = await client.get(
+      url,
+      headers: {
+        'Authorization': 'Bearer $API_KEY',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      var json = jsonDecode(response.body);
+      return List<Peliculahistoria>.from(
+          json['results'].map((x) => Peliculahistoria.fromJson(x)));
+    } else {
+      throw Exception('Failed to load movie');
+    }
+  }
 }
+
